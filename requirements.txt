@@ -1,0 +1,23 @@
+# YOLO11 Hand Gesture Classification Pipeline Requirements
+
+# Core ML/CV libraries
+ultralytics>=8.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Computer vision and image processing
+opencv-python>=4.8.0
+
+# Scientific computing
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Additional utilities
+Pillow>=10.0.0
+tqdm>=4.65.0
+
+# Benchmarking
+mediapipe>=0.10.0
