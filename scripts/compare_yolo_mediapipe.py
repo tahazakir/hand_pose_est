@@ -1,7 +1,7 @@
 """
-Compare YOLO11 Pose vs MediaPipe Hands on the same validation dataset.
+Compare YOLOv8, YOLO11 Pose, and MediaPipe Hands on the same validation dataset.
 
-Evaluates both models on common metrics:
+Evaluates all three models on common metrics:
 - Detection rate
 - Average IoU
 - Mean OKS
@@ -27,9 +27,10 @@ import mediapipe as mp
 
 # ---------------- CONFIG ----------------
 BASE_DIR = Path(__file__).resolve().parent.parent
-VAL_IMAGES = BASE_DIR / "data" / "hand-keypoints" / "images" / "val"
-VAL_LABELS = BASE_DIR / "data" / "hand-keypoints" / "labels" / "val"
-YOLO_MODEL_PATH = BASE_DIR / "models" / "best.pt"
+VAL_IMAGES = BASE_DIR / "data" / "images" / "val"
+VAL_LABELS = BASE_DIR / "data" / "labels" / "val"
+YOLO8_MODEL_PATH = BASE_DIR / "models" / "best_v8.pt"
+YOLO11_MODEL_PATH = BASE_DIR / "models" / "best.pt"
 RESULTS_DIR = BASE_DIR / "results" / "comparison"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -189,11 +190,12 @@ def evaluate_mediapipe(max_images=None):
     }
 
 # ---------------- COMPARISON & PLOT ----------------
-def compare_models(yolo_metrics, mp_metrics):
-    summary = {"YOLO11": yolo_metrics, "MediaPipe": mp_metrics}
+def compare_models(yolo8_metrics, yolo11_metrics, mp_metrics):
+    summary = {"YOLOv8": yolo8_metrics, "YOLO11": yolo11_metrics, "MediaPipe": mp_metrics}
 
-    metrics = list(yolo_metrics.keys())
-    yolo_vals = [yolo_metrics[m] for m in metrics]
+    metrics = list(yolo8_metrics.keys())
+    yolo8_vals = [yolo8_metrics[m] for m in metrics]
+    yolo11_vals = [yolo11_metrics[m] for m in metrics]
     mp_vals = [mp_metrics[m] for m in metrics]
 
     # Save JSON
@@ -204,19 +206,22 @@ def compare_models(yolo_metrics, mp_metrics):
 
     # Radar / spider chart
     angles = np.linspace(0, 2 * np.pi, len(metrics), endpoint=False).tolist()
-    yolo_vals += yolo_vals[:1]
+    yolo8_vals += yolo8_vals[:1]
+    yolo11_vals += yolo11_vals[:1]
     mp_vals += mp_vals[:1]
     angles += angles[:1]
 
-    plt.figure(figsize=(7, 7))
+    plt.figure(figsize=(8, 8))
     ax = plt.subplot(111, polar=True)
     plt.xticks(angles[:-1], metrics, color="grey", size=9)
-    ax.plot(angles, yolo_vals, linewidth=2, label="YOLO11")
-    ax.fill(angles, yolo_vals, alpha=0.25)
+    ax.plot(angles, yolo8_vals, linewidth=2, label="YOLOv8")
+    ax.fill(angles, yolo8_vals, alpha=0.2)
+    ax.plot(angles, yolo11_vals, linewidth=2, label="YOLO11")
+    ax.fill(angles, yolo11_vals, alpha=0.2)
     ax.plot(angles, mp_vals, linewidth=2, label="MediaPipe")
-    ax.fill(angles, mp_vals, alpha=0.25)
+    ax.fill(angles, mp_vals, alpha=0.2)
     plt.legend(loc="upper right", bbox_to_anchor=(1.3, 1.1))
-    plt.title("YOLO11 vs MediaPipe Comparison", size=13, weight="bold")
+    plt.title("YOLOv8 vs YOLO11 vs MediaPipe Comparison", size=13, weight="bold")
     plt.tight_layout()
     plt.savefig(RESULTS_DIR / "comparison_chart.png", dpi=150)
     plt.close()
@@ -224,15 +229,19 @@ def compare_models(yolo_metrics, mp_metrics):
 
 # ---------------- MAIN ----------------
 def main():
+    print("\n=== Evaluating YOLOv8 Pose ===")
+    yolo8_metrics = evaluate_yolo(YOLO8_MODEL_PATH)
+    print(json.dumps(yolo8_metrics, indent=2))
+
     print("\n=== Evaluating YOLO11 Pose ===")
-    yolo_metrics = evaluate_yolo(YOLO_MODEL_PATH)
-    print(json.dumps(yolo_metrics, indent=2))
+    yolo11_metrics = evaluate_yolo(YOLO11_MODEL_PATH)
+    print(json.dumps(yolo11_metrics, indent=2))
 
     print("\n=== Evaluating MediaPipe Hands ===")
     mp_metrics = evaluate_mediapipe()
     print(json.dumps(mp_metrics, indent=2))
 
-    compare_models(yolo_metrics, mp_metrics)
+    compare_models(yolo8_metrics, yolo11_metrics, mp_metrics)
 
 if __name__ == "__main__":
     main()
