@@ -39,7 +39,7 @@ A pre-trained YOLO11 pose model is included at `models/best.pt`. You can use thi
 
 ## Usage
 
-### 1. Gesture Counter with Auto-Calibration
+### 1 Gesture Counter with Auto-Calibration
 
 This script includes a calibration mode to personalize gesture detection thresholds:
 
@@ -55,9 +55,24 @@ python scripts/gesture_counter_openclose_autocalib.py --weights models/best.pt
 - `q` or `ESC`: Quit
 - During calibration: Follow on-screen instructions to hold fist and open palm poses
 
-### 2. Gesture Counter (Palm-Normalized)
 
-A simpler version with fixed thresholds:
+Track fist-to-thumbs-up exercises with personalized calibration:
+
+```bash
+# Run calibration first (one-time setup)
+python scripts/gesture_counter_fist_thumbsup_autocalib.py --calibrate --weights models/best.pt
+
+# Then run the counter
+python scripts/gesture_counter_fist_thumbsup_autocalib.py --weights models/best.pt
+```
+
+**Controls:**
+- `q` or `ESC`: Quit
+- During calibration: Follow on-screen instructions to hold fist and thumbs-up poses
+
+### 2 Gesture Counter (Palm-Normalized)
+
+Open palm to fist counter with fixed thresholds:
 
 ```bash
 python scripts/gesture_counter_openclose_palmnorm.py --weights models/best.pt
@@ -68,6 +83,19 @@ python scripts/gesture_counter_openclose_palmnorm.py --weights models/best.pt
 --open_thresh FLOAT   # Threshold for open palm detection (default: 0.75)
 --fist_thresh FLOAT   # Threshold for fist detection (default: 0.45)
 --spread_thresh FLOAT # Fingertip spread threshold (default: 0.45)
+```
+
+Open fist to thumbs-up counter with fixed thresholds:
+
+```bash
+python scripts/gesture_counter_fist_thumbsup.py --weights models/best.pt
+```
+
+**Optional parameters:**
+```bash
+--thumb_extended_thresh FLOAT  # Thumb extension threshold (default: 0.65)
+--finger_curled_thresh FLOAT   # Other fingers curled threshold (default: 0.50)
+--fist_thresh FLOAT            # Fist detection threshold (default: 0.45)
 ```
 
 ### 3. Model Comparison (YOLO11 vs MediaPipe)
@@ -84,7 +112,9 @@ Results are saved to `results/comparison/`:
 
 ## Gesture Definitions
 
-The system recognizes two gestures for rehabilitation exercises:
+The system recognizes the following gestures for rehabilitation exercises:
+
+### Open Palm / Fist Exercises
 
 1. **Open Palm**: All 5 fingers extended, fingertips spread apart
 2. **Fist**: All fingers curled toward palm
@@ -92,7 +122,18 @@ The system recognizes two gestures for rehabilitation exercises:
 **Rep Counting Logic:**
 - Start with a fist
 - Open palm fully (rep counter waits)
-- Return to fist � counts as 1 rep
+- Return to fist → counts as 1 rep
+- Repeat
+
+### Fist / Thumbs-Up Exercises
+
+1. **Fist**: All 5 fingers curled toward palm
+2. **Thumbs Up**: Thumb extended upward, other 4 fingers curled
+
+**Rep Counting Logic:**
+- Start with a fist
+- Extend thumb to thumbs-up position (rep counter waits)
+- Return to fist → counts as 1 rep
 - Repeat
 
 ## Training Your Own Model
