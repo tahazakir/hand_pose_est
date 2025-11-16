@@ -41,7 +41,10 @@ A pre-trained YOLO11 pose model is included at `models/best.pt`. You can use thi
 
 ### 1 Gesture Counter with Auto-Calibration
 
-This script includes a calibration mode to personalize gesture detection thresholds:
+This script includes a calibration mode to personalize gesture detection thresholds.
+
+Track open-close exercises with personalized calibration:
+
 
 ```bash
 # Run calibration first (one-time setup)
@@ -50,11 +53,6 @@ python scripts/gesture_counter_openclose_autocalib.py --calibrate --weights mode
 # Then run the counter
 python scripts/gesture_counter_openclose_autocalib.py --weights models/best.pt
 ```
-
-**Controls:**
-- `q` or `ESC`: Quit
-- During calibration: Follow on-screen instructions to hold fist and open palm poses
-
 
 Track fist-to-thumbs-up exercises with personalized calibration:
 
