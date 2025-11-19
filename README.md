@@ -91,9 +91,9 @@ python scripts/gesture_counter_fist_thumbsup.py --weights models/best.pt
 
 **Optional parameters:**
 ```bash
---thumb_extended_thresh FLOAT  # Thumb extension threshold (default: 0.65)
---finger_curled_thresh FLOAT   # Other fingers curled threshold (default: 0.50)
---fist_thresh FLOAT            # Fist detection threshold (default: 0.45)
+--thumb_extended_thresh FLOAT  # Thumb extension threshold (default: 1.43)
+--finger_curled_thresh FLOAT   # Other fingers curled threshold (default: 0.45)
+--fist_thresh FLOAT            # Fist detection threshold (default: 0.75)
 ```
 
 ### 3. Model Comparison (YOLO11 vs MediaPipe)

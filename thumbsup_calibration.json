@@ -1,0 +1,17 @@
+{
+  "fist_thresh": 0.7517664067612753,
+  "thumb_extended_thresh": 1.434020124812319,
+  "finger_curled_thresh": 0.45592519897553657,
+  "_debug": {
+    "mean_fist": {
+      "thumb": 1.3022664997312758,
+      "other_fingers_avg": 0.49157078332371185,
+      "all_fingers_avg": 0.6537099189228481
+    },
+    "mean_thumbsup": {
+      "thumb": 1.565773749893362,
+      "other_fingers_avg": 0.4202796146273613,
+      "all_fingers_avg": 0.6493784433061426
+    }
+  }
+}
