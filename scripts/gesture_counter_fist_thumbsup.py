@@ -27,7 +27,7 @@ FINGERTIPS = [4, 8, 12, 16, 20]
 @dataclass
 class GestureConfig:
     det_conf_thresh: float = 0.45
-    # Hardcoded calibrated values from thumbsup_calibration.json
+    # Hardcoded calibrated values from scripts/thumbsup_calibration.json
     # Update these values by running gesture_counter_fist_thumbsup_autocalib.py --calibrate
     thumb_extended_thresh: float = 1.434020124812319   # calibrated thumb extension ratio
     finger_curled_thresh: float = 0.45592519897553657   # calibrated other fingers curled threshold

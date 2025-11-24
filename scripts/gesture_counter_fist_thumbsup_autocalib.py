@@ -1,6 +1,7 @@
 import argparse
 import json
 import math
+import os
 import time
 from collections import deque, Counter
 from dataclasses import dataclass
@@ -23,6 +24,9 @@ PINKY = (17, 20)
 FINGERS = [THUMB, INDEX, MIDDLE, RING, PINKY]
 FINGERTIPS = [4, 8, 12, 16, 20]
 
+# Path to calibration file relative to this script
+_CALIBRATION_FILE = os.path.join(os.path.dirname(__file__), "thumbsup_calibration.json")
+
 # ----------------------------
 # Config
 # ----------------------------
@@ -34,7 +38,7 @@ class GestureConfig:
     fist_thresh: float = 0.45
     smooth_window: int = 5
     stable_min: int = 3
-    calibration_file: str = "thumbsup_calibration.json"
+    calibration_file: str = _CALIBRATION_FILE
 
 # ----------------------------
 # Helpers
