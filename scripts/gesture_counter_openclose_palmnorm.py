@@ -26,7 +26,7 @@ FINGERTIPS = [4, 8, 12, 16, 20]
 # ----------------------------
 @dataclass
 class GestureConfig:
-    det_conf_thresh: float = 0.45
+    det_conf_thresh: float = 0.15  # Optimized threshold for better detection rate
     open_thresh: float = 0.75     # base→tip / palm scale for “extended”
     fist_thresh: float = 0.45     # base→tip / palm scale for “curled”
     spread_thresh: float = 0.45   # fingertip spread / palm width for open palm

@@ -280,7 +280,7 @@ def main():
         if not ret:
             break
 
-        results = model.predict(frame, verbose=False, device=args.device, conf=0.25, imgsz=640)
+        results = model.predict(frame, verbose=False, device=args.device, conf=0.15, imgsz=640)  # Optimized threshold
         kpts = None
         for r in results:
             if len(r.keypoints) > 0:

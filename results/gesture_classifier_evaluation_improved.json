@@ -1,0 +1,254 @@
+[
+  {
+    "classifier": "Open/Close Classifier",
+    "detection_rate": 0.372,
+    "valid_keypoint_rate": 0.352,
+    "accuracy": 0.8269230769230769,
+    "precision": {
+      "open_palm": 0.8888888888888888,
+      "fist": 0.7941176470588235
+    },
+    "recall": {
+      "open_palm": 0.6956521739130435,
+      "fist": 0.9310344827586207
+    },
+    "f1_score": {
+      "open_palm": 0.7804878048780488,
+      "fist": 0.8571428571428571
+    },
+    "support": {
+      "open_palm": 23,
+      "fist": 29
+    },
+    "total_samples": 250,
+    "detected_samples": 52,
+    "valid_keypoint_samples": 176,
+    "no_detection_count": 198,
+    "confusion_matrix": {
+      "labels": [
+        "open_palm",
+        "fist"
+      ],
+      "matrix": [
+        [
+          16,
+          7
+        ],
+        [
+          2,
+          27
+        ]
+      ]
+    }
+  },
+  {
+    "classifier": "MediaPipe (Open/Close)",
+    "detection_rate": 0.458,
+    "valid_keypoint_rate": 0.44,
+    "accuracy": 0.9695431472081218,
+    "precision": {
+      "open_palm": 0.941747572815534,
+      "fist": 1.0
+    },
+    "recall": {
+      "open_palm": 1.0,
+      "fist": 0.94
+    },
+    "f1_score": {
+      "open_palm": 0.97,
+      "fist": 0.9690721649484536
+    },
+    "support": {
+      "open_palm": 97,
+      "fist": 100
+    },
+    "total_samples": 250,
+    "detected_samples": 197,
+    "valid_keypoint_samples": 220,
+    "no_detection_count": 53,
+    "confusion_matrix": {
+      "labels": [
+        "open_palm",
+        "fist"
+      ],
+      "matrix": [
+        [
+          97,
+          0
+        ],
+        [
+          6,
+          94
+        ]
+      ]
+    }
+  },
+  {
+    "classifier": "Fist/Thumbs-up Classifier",
+    "detection_rate": 0.314,
+    "valid_keypoint_rate": 0.298,
+    "accuracy": 0.7591240875912408,
+    "precision": {
+      "thumbs_up": 1.0,
+      "fist": 0.6944444444444444
+    },
+    "recall": {
+      "thumbs_up": 0.46774193548387094,
+      "fist": 1.0
+    },
+    "f1_score": {
+      "thumbs_up": 0.6373626373626373,
+      "fist": 0.819672131147541
+    },
+    "support": {
+      "thumbs_up": 62,
+      "fist": 75
+    },
+    "total_samples": 250,
+    "detected_samples": 137,
+    "valid_keypoint_samples": 149,
+    "no_detection_count": 113,
+    "confusion_matrix": {
+      "labels": [
+        "thumbs_up",
+        "fist"
+      ],
+      "matrix": [
+        [
+          29,
+          33
+        ],
+        [
+          0,
+          75
+        ]
+      ]
+    }
+  },
+  {
+    "classifier": "MediaPipe (Fist/Thumbs-up)",
+    "detection_rate": 0.436,
+    "valid_keypoint_rate": 0.42,
+    "accuracy": 0.6153846153846154,
+    "precision": {
+      "thumbs_up": 0.7317073170731707,
+      "fist": 0.5844155844155844
+    },
+    "recall": {
+      "thumbs_up": 0.3191489361702128,
+      "fist": 0.8910891089108911
+    },
+    "f1_score": {
+      "thumbs_up": 0.4444444444444444,
+      "fist": 0.7058823529411765
+    },
+    "support": {
+      "thumbs_up": 94,
+      "fist": 101
+    },
+    "total_samples": 250,
+    "detected_samples": 195,
+    "valid_keypoint_samples": 210,
+    "no_detection_count": 55,
+    "confusion_matrix": {
+      "labels": [
+        "thumbs_up",
+        "fist"
+      ],
+      "matrix": [
+        [
+          30,
+          64
+        ],
+        [
+          11,
+          90
+        ]
+      ]
+    }
+  },
+  {
+    "classifier": "Index Finger Classifier",
+    "detection_rate": 0.346,
+    "valid_keypoint_rate": 0.324,
+    "accuracy": 0.549618320610687,
+    "precision": {
+      "index_up": 1.0,
+      "fist": 0.5390625
+    },
+    "recall": {
+      "index_up": 0.04838709677419355,
+      "fist": 1.0
+    },
+    "f1_score": {
+      "index_up": 0.09230769230769231,
+      "fist": 0.700507614213198
+    },
+    "support": {
+      "index_up": 62,
+      "fist": 69
+    },
+    "total_samples": 250,
+    "detected_samples": 131,
+    "valid_keypoint_samples": 162,
+    "no_detection_count": 119,
+    "confusion_matrix": {
+      "labels": [
+        "index_up",
+        "fist"
+      ],
+      "matrix": [
+        [
+          3,
+          59
+        ],
+        [
+          0,
+          69
+        ]
+      ]
+    }
+  },
+  {
+    "classifier": "MediaPipe (Index Finger)",
+    "detection_rate": 0.454,
+    "valid_keypoint_rate": 0.44,
+    "accuracy": 0.9850746268656716,
+    "precision": {
+      "index_up": 0.98989898989899,
+      "fist": 0.9803921568627451
+    },
+    "recall": {
+      "index_up": 0.98,
+      "fist": 0.9900990099009901
+    },
+    "f1_score": {
+      "index_up": 0.9849246231155779,
+      "fist": 0.9852216748768473
+    },
+    "support": {
+      "index_up": 100,
+      "fist": 101
+    },
+    "total_samples": 250,
+    "detected_samples": 201,
+    "valid_keypoint_samples": 220,
+    "no_detection_count": 49,
+    "confusion_matrix": {
+      "labels": [
+        "index_up",
+        "fist"
+      ],
+      "matrix": [
+        [
+          98,
+          2
+        ],
+        [
+          1,
+          100
+        ]
+      ]
+    }
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "open_close": {
+    "open_thresh": 0.5490891337394714,
+    "fist_thresh": 0.5179500579833984,
+    "spread_thresh": 0.8963609933853149
+  },
+  "fist_thumbsup": {
+    "thumb_extended_thresh": 0.970901608467102,
+    "finger_curled_thresh": 0.5381079316139221,
+    "fist_thresh": 0.5179500579833984
+  },
+  "index_finger": {
+    "vertical_up_min": 0.0,
+    "index_up_min": 0.31162914633750916,
+    "others_down_max": 0.5974230170249939,
+    "fist_all_max": 0.5179500579833984
+  }
+}

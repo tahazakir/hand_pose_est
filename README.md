@@ -108,6 +108,30 @@ Results are saved to `results/comparison/`:
 - `summary.json`: Metrics comparison
 - `comparison_chart.png`: Visualization
 
+### 4. Gesture Classifier Evaluation
+
+Evaluate rule-based gesture classifiers on validation dataset:
+
+```bash
+python scripts/evaluate_gesture_classifiers.py
+```
+
+This evaluates three rule-based classifiers:
+1. **Open/Close classifier**: Detects `open_palm` vs `fist`
+2. **Fist/Thumbs-up classifier**: Detects `thumbs_up` vs `fist`
+3. **Index finger classifier**: Detects `index_up` vs `fist`
+
+The script also includes MediaPipe Hands as a benchmark for comparison.
+
+**Results** are saved to `results/`:
+- `gesture_classifier_evaluation.json`: Complete metrics (accuracy, precision, recall, F1-score)
+- `gesture_classifier_evaluation_table.txt`: Formatted results table
+
+**Features**:
+- Optimized detection confidence threshold (0.15)
+- Keypoint quality validation
+- Comprehensive metrics including confusion matrices
+
 ## Gesture Definitions
 
 The system recognizes the following gestures for rehabilitation exercises:

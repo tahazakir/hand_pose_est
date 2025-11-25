@@ -32,7 +32,7 @@ _CALIBRATION_FILE = os.path.join(os.path.dirname(__file__), "thumbsup_calibratio
 # ----------------------------
 @dataclass
 class GestureConfig:
-    det_conf_thresh: float = 0.45
+    det_conf_thresh: float = 0.15  # Optimized threshold for better detection rate
     thumb_extended_thresh: float = 0.65
     finger_curled_thresh: float = 0.50
     fist_thresh: float = 0.45
