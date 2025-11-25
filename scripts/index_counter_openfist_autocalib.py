@@ -145,7 +145,7 @@ def run_calibration(model, cap, device, view, seconds_each=4, min_stable=30):
             ret, frame = cap.read()
             if not ret:
                 break
-            results = model.predict(frame, verbose=False, device=device, conf=0.15, imgsz=640)  # Optimized threshold
+            results = model.predict(frame, verbose=False, device=device, conf=0.25, imgsz=640)
             kpts = None
             # take the first hand with kpts if present
             for r in results:
