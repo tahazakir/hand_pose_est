@@ -165,3 +165,6 @@ Use the included Jupyter notebook `yolo11_pose_est.ipynb` to:
 - Customize training parameters (epochs, batch size, image size)
 - Export and evaluate your model
 
+
+## GenAI Appendix 
+We used Cursor and Claude to help code out some sections of the repo. 
