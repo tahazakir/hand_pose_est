@@ -8,7 +8,7 @@
     "Mean Inference Time (ms)": 57.4953526526958,
     "FPS": 17.392710086336216
   },
-  "YOLO11": {
+  "YOLO11-Finetuned": {
     "Detection Rate": 0.9992492492492493,
     "Mean IoU": 0.8904758172053273,
     "Mean OKS": 0.8403557176801555,
@@ -16,6 +16,15 @@
     "Mean L2 Error": 0.027193210678330037,
     "Mean Inference Time (ms)": 54.04253415875249,
     "FPS": 18.503943524603287
+  },
+  "YOLO11-Baseline": {
+  "Detection Rate": 0.9409409409409409,
+  "Mean IoU": 0.4281298318038539,
+  "Mean OKS": 0.027741008422272475,
+  "PCK@0.05": 0.004139348865569141,
+  "Mean Distance Error": 0.40838490957327034,
+  "Mean Inference Time (ms)": 48.87527003660574,
+  "FPS": 20.46024501247845
   },
   "MediaPipe": {
     "Detection Rate": 1.0,
