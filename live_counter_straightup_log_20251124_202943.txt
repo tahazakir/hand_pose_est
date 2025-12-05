@@ -1,1 +1,0 @@
-timestamp,idx_norm,oth_norm,idx_vertical,idx_angle,raw_gesture
